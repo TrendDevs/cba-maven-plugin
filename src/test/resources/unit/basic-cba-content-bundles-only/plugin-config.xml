@@ -1,0 +1,49 @@
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<project>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>cba-maven-plugin</artifactId>
+				<configuration>
+					<!-- Directory with extra files to be included in the artifact -->
+					<cbaSourceDirectory>${basedir}/src/test/resources/unit/basic-cba-content-bundles-only/src/main/cba</cbaSourceDirectory>
+					<!-- The location of the COMPOSITEBUNDLE.MF file to be used within the cba file -->
+					<compositeBundleManifestFile>${basedir}/src/test/resources/unit/basic-cba-content-bundles-only/src/main/cba/META-INF/COMPOSITEBUNDLE.MF</compositeBundleManifestFile>
+					<!-- Should generated jar file be included in the cba file ; default is true -->
+					<includeJar>false</includeJar>
+					<!-- Whether to generate a manifest based on maven configuration. ;  default is false -->
+					<generateManifest>true</generateManifest>
+					<!--  Adding pom.xml and pom.properties to the archive; default is true -->
+					<addMavenDescriptor>true</addMavenDescriptor>
+					<!-- Include or not empty directories; default is true -->
+					<includeEmptyDirs>true</includeEmptyDirs>
+					<!-- Whether to follow transitive dependencies or use explicit dependencies; default is false -->
+					<useTransitiveDependencies>false</useTransitiveDependencies>
+					<!-- Whether creating the archive should be forced -->
+					<forceCreation>false</forceCreation>
+					<!--
+                     Define which bundles to include in the archive.
+                       none - no bundles are included
+                       applicationContent - direct dependencies go into the content
+                       all - direct and transitive dependencies go into the content
+                    -->
+					<archiveContent>applicationContent</archiveContent>
+					<workDirectory>${basedir}/target/unit/basic-cba-content-bundles-only/target/cba-test</workDirectory>
+					<outputDirectory>${basedir}/target/unit/basic-cba-content-bundles-only/target</outputDirectory>
+					<finalName>test-cba-content-bundles-only</finalName>
+					<project implementation="uk.co.trenddevs.plugin.cba.stubs.CbaMavenProjectStub6" />
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

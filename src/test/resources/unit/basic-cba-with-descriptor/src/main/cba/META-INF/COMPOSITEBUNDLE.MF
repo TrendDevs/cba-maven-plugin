@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+CompositeBundle-ManifestVersion: 1.0
+Bundle-Name: Bank Account
+Bundle-Description: Bank Account
+Bundle-SymbolicName: com.mybank.account.app
+Bundle-Version: 1.0
+CompositeBundle-Content:
+	com.mybank.account.bankWeb; version=1.0.0,
+	com.mybank.account.bankAccount; version=1.0.0,
+	com.mybank.account.common; version=1.0.0,
+	com.mybank.account.utility; version=1.0.0
+CompositeBundle-ExportService: com.mybank.account.service.AccountService
+CompositeBundle-ImportService: com.mybank.security.UserAuthService;filter="(security=strong)"
