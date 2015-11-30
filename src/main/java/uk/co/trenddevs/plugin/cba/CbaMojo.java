@@ -81,7 +81,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * Directory with extra files to include in the cba.
      *
-     * @parameter property="${basedir}/src/main/cba"
+     * @parameter expression="${basedir}/src/main/cba"
      * @required
      */
     private File cbaSourceDirectory;
@@ -89,7 +89,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * The location of the COMPOSITEBUNDLE.MF file to be used within the cba file.
      *
-     * @parameter property="${basedir}/src/main/cba/META-INF/COMPOSITEBUNDLE.MF"
+     * @parameter expression="${basedir}/src/main/cba/META-INF/COMPOSITEBUNDLE.MF"
      */
     private File compositeBundleManifestFile;
 
@@ -102,7 +102,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * Work directory for temporary files generated during plugin execution.
      *
-     * @parameter property="${project.build.directory}/${project.build.finalName}"
+     * @parameter expression="${project.build.directory}/${project.build.finalName}"
      * @required
      */
     private String workDirectory;
@@ -110,7 +110,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * Output directory for the cba.
      *
-     * @parameter property="${project.build.directory}"
+     * @parameter expression="${project.build.directory}"
      * @required
      */
     private String outputDirectory;
@@ -118,7 +118,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * The name of the cba file to generate.
      *
-     * @parameter alias="cbaName" property="${project.build.finalName}"
+     * @parameter alias="cbaName" expression="${project.build.finalName}"
      * @required
      */
     private String finalName;
@@ -126,7 +126,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * The maven project.
      *
-     * @parameter property="${project}"
+     * @parameter expression="${project}"
      * @required
      * @readonly
      */
@@ -143,7 +143,7 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * Whether to generate a manifest based on maven configuration.
      *
-     * @parameter property="${generateManifest}" default-value="false"
+     * @parameter expression="${generateManifest}" default-value="false"
      */
     private boolean generateManifest;
 
@@ -157,28 +157,28 @@ public class CbaMojo  extends AbstractMojo  {
     /**
      * Adding pom.xml and pom.properties to the archive.
      *
-     * @parameter property="${addMavenDescriptor}" default-value="true"
+     * @parameter expression="${addMavenDescriptor}" default-value="true"
      */
     private boolean addMavenDescriptor;
 
     /**
      * Include or not empty directories
      *
-     * @parameter property="${includeEmptyDirs}" default-value="true"
+     * @parameter expression="${includeEmptyDirs}" default-value="true"
      */
     private boolean includeEmptyDirs;
 
     /**
      * Whether creating the archive should be forced.
      *
-     * @parameter property="${forceCreation}" default-value="false"
+     * @parameter expression="${forceCreation}" default-value="false"
      */
     private boolean forceCreation;
 
     /**
      * Whether to follow transitive dependencies or use explicit dependencies.
      *
-     * @parameter property="${useTransitiveDependencies}" default-value="false"
+     * @parameter expression="${useTransitiveDependencies}" default-value="false"
      */
     private boolean useTransitiveDependencies;
 
@@ -188,7 +188,7 @@ public class CbaMojo  extends AbstractMojo  {
      *   applicationContent - direct dependencies go into the content
      *   all - direct and transitive dependencies go into the content 
      *
-     * @parameter property="${archiveContent}" default-value="applicationContent"
+     * @parameter expression="${archiveContent}" default-value="applicationContent"
      */
     private String archiveContent;
 
